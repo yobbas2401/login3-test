@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.108.0">
+  <title>login · Bootstrap v5.3</title>
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
+  <link href="plugin/bootstrap.min.css" rel="stylesheet">
+  <link href="plugin/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <script src="plugin/bootstrap.bundle.min.js"></script>
+  <script src="d3.v3.min.js"></script>
+
+   <!-- Custom styles for this template -->
+  <link href="css/sign-in.css" rel="stylesheet" />
+  <link href="css/styles.css" rel="stylesheet" />
+  
+
+</head>
+<header class="main-header">
+  <div class="main-header">
+    <img src="img\logo-light.svg" title="" alt="">
+    <p style="margin-bottom: 0px;">FICHAS WIFI YOSA</p>
+  </div>
+</header>
+<body class="text-center">
+  $(if chap-id)
+  <form name="sendin" action="$(link-login-only)" method="post" style="display:none">
+    <input type="hidden" name="username" />
+    <input type="hidden" name="password" />
+    <input type="hidden" name="dst" value="$(link-orig)" />
+    <input type="hidden" name="popup" value="true" />
+  </form>
+
+  <script src="/md5.js"></script>
+  <script>
+    function doLogin() {
+      document.sendin.username.value = document.login.username.value;
+      document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+      document.sendin.submit();
+      return false;
+    }
+
+  </script>
+  $(endif)
+  <main class="form-signin w-100 m-auto">
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
+          type="button" role="tab" aria-controls="pills-home" aria-selected="true">Ficha</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button onclick="onclick=window.location.href='https://yobbas2401.github.io/qr-boostrap'" class="nav-link" id="pills-qr-tab" data-bs-toggle="pill" data-bs-target="#pills-qr" type="button"
+          role="tab" aria-controls="pills-qr" aria-selected="false">QR</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-precios-tab" data-bs-toggle="pill" data-bs-target="#pills-precios"
+          type="button" role="tab" aria-controls="pills-precios" aria-selected="false">Precios</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-contacto-tab" data-bs-toggle="pill" data-bs-target="#pills-contacto"
+          type="button" role="tab" aria-controls="pills-contacto" aria-selected="false">Contacto</button>
+      </li>
+    </ul>
+    <div class="tab-content" id="pills-tabContent">
+      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"
+        tabindex="0">
+
+        <form>
+          <input type="hidden" name="dst" value="$(link-orig)" />
+          <input type="hidden" name="popup" value="true" />
+          <img class="mb-4" src="img/logo-login.svg" alt="" width="100" height="100" />
+          <h1 class="h3 mb-3 fw-normal">Bienvenido</h1>
+          <p>ingresa tu ficha para conectarte a internet</p>
+          $(if trial == 'yes')
+          <p>Prueba el servicio gratis click aqui> 
+            <a class="bi bi-bag-check-fill" href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)"></a>
+          </p> 
+          $(endif)
+
+          <div class="form-floating" style="display: flex;">
+            <span class="input-group-text bi-person-circle color-tema-text" style="font-size: x-large;"></span>
+            <input name="username" type="text" class="form-control" id="floatingInput" placeholder="User"required />
+            <label for="floatingInput" style="margin-left: 50px;">Usuario</label>
+          </div>
+          <div class="form-floating" style="display: flex; margin-bottom: 25px;">
+            <span class="input-group-text bi-lock-fill color-tema-text" style="font-size: x-large;"></span>
+            <input name="password" type="password" class="form-control" style="margin-bottom: 0px;"s id="floatingPassword" placeholder="Pass" required />
+            <label for="floatingPassword" style="margin-left: 50px;">Contraseña</label>
+          </div>
+
+          <div class="checkbox mb-3">
+            <label>
+              <input type="checkbox" value="remember-me" /> Remember me
+            </label>
+          </div>
+          <button class="w-100 btn btn-lg btn-primary" type="submit">
+            Ingresar
+          </button>
+          <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
+        </form>
+
+      </div>
+
+
+      <div class="tab-pane fade" id="pills-qr" role="tabpanel" aria-labelledby="pills-qr-tab" tabindex="0">
+        ..
+      </div>
+
+      <div class="tab-pane fade" id="pills-precios" role="tabpanel" aria-labelledby="pills-precios-tab" tabindex="0">
+        
+        <div class="card border-dark mb-3">
+          <div class="card-header"><h5 class="card-title"> <i class="bi bi bi-postcard-fill"></i>  Internet por fichas</h5></div>
+          <div class="card-body"style="padding: 1px;">
+            <table class="table" id="paketwifi">
+        
+              <thead class="table-dark">
+              <tr>
+                <th scope="col">Ficha</th>
+                <th scope="col">Tiempo</th>
+                <th scope="col">Precio</th>
+              </tr>
+            </thead>
+            <tbody class="table-group-divider">
+              <script type="text/javascript" charset="utf-8">
+                d3.text("paket-wifi.csv", function(data) {
+                    var parsedCSV = d3.csv.parseRows(data);
+    
+                    var container = d3.select("tbody.table-group-divider")
+    
+                        .selectAll("tr")
+                            .data(parsedCSV).enter()
+                            .append("tr")
+    
+                        .selectAll("td")
+                            .data(function(d) { return d; }).enter()
+                            .append("td")
+                            .text(function(d) { return d; });
+                });
+          </script>
+          </tbody>
+          </table>
+
+          </div>
+
+        </div>
+
+        <div class="card border-dark mb-3" style="margin-bottom:50px !important;">
+          <div class="card-header"><h5 class="card-title"> <i class="bi bi-router-fill"></i>  Internet residencial</h5></div>
+          <div class="card-body"style="padding: 1px;">
+            <table class="table" id="paketwifi">
+        
+              <thead class="table-dark">
+              <tr>
+                <th scope="col">Plan</th>
+                <th scope="col">Dispositivos</th>
+                <th scope="col">Precio mensual</th>
+              </tr>
+            </thead>
+            <tbody id="idtbody" class="table-hover">
+              <script type="text/javascript" charset="utf-8">
+                d3.text("residencial.csv", function(data) {
+                    var parsedCSV = d3.csv.parseRows(data);
+    
+                    var container = d3.select('tbody.table-hover')
+    
+                        .selectAll("tr")
+                            .data(parsedCSV).enter()
+                            .append("tr")
+    
+                        .selectAll("td")
+                            .data(function(d) { return d; }).enter()
+                            .append("td")
+                            .text(function(d) { return d; });
+                });
+          </script>
+          </tbody>
+          </table>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="tab-pane fade" id="pills-contacto" role="tabpanel" aria-labelledby="pills-contacto-tab" tabindex="0">
+        
+        <div class="card border-dark mb-3">
+          <div class="card-header"><h5 class="card-title"> <i class="bi bi-geo-alt-fill"></i>  Punto de venta</h5>
+            </div>
+          <div class="card-body">
+            <p class="card-text">En el domicilio de la señora Yolanda Reyes Miguel</p>
+          </div>
+        </div>
+
+        <div class="card border-dark mb-3">
+          <div class="card-header"><h5 class="card-title"> <i class="bi bi-whatsapp"></i>  Whatsapp</h5>
+            </div>
+          <div class="card-body">
+            <p class="card-text">9211987403</p>
+          </div>
+        </div>
+
+        <div class="card border-dark mb-3">
+          <div class="card-header"><h5 class="card-title"><i class="bi bi-envelope-at-fill"></i>  Correo electronico</h5>
+            </div>
+          <div class="card-body">
+            <p class="card-text">proyectos2018mecatronica@gmail.com</p>
+          </div>
+        </div>
+
+        <div class="card border-dark mb-3" style="margin-bottom:50px !important;">
+          <div class="card-header"><h5 class="card-title"> <i class="bi bi-geo-alt-fill"></i>  Para mas información envianos un mensaje</h5>
+            </div>
+          <div class="card-body">
+            <form id="contactform" >
+              
+              <div class="form-floating"style="margin-top:25px;">
+                <input name="username" type="text" class="form-control" id="input-nombre" placeholder="Nombre" autofocus required />
+                <label for="floatingInput">Nombre</label>
+              </div>
+              <div class="form-floating" style="margin-top:25px;">
+                <textarea class="form-control" placeholder="Escriba su mensaje" id="input-mensaje" required></textarea>
+                <label for="floatingInput">Mensaje</label>
+    
+              </div>
+              <button id="sendbttn" type="submit" class="btn btn-primary" style="margin-top:25px;">Enviar</button>
+            </form>
+          </div>
+        </div>
+        
+
+        
+
+      </div>
+    </div>
+
+  </main>
+  <script src="plugin/sweetalert2.all.min.js"></script>
+  $(if error)
+  <script>
+  Swal.fire({
+    title: "Error",
+    //text:"$(error)",
+    html:'Error: $(error)</font>',
+    icon:"error"})
+  </script>
+  $(endif)
+
+  <script>
+    var formulariowtsp = document.getElementById('contactform');
+    var sendbttn = document.querySelector('#sendbttn');
+    sendbttn.addEventListener('click', EnviarMensaje)
+    function EnviarMensaje() {
+      let name = document.querySelector('#input-nombre').value;
+      let mensaje = document.querySelector('#input-mensaje').value;
+      let url = "https://api.whatsapp.com/send?phone=529211987403&text=Nombre: %0A" + name + "%0A%0AMensaje: %0A" + mensaje + "%0A";
+      window.open(url);  
+    }
+    </script>
+
+</body>
+<footer>©Wifi San juan del rio</footer>
+
+</html>
